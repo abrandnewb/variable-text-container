@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Natural Cycles Frontend challenge</title>
-    <link rel="stylesheet" href="css/style.css">
+  <title>Natural Cycles Frontend challenge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <input type="text" id="input">
-    <input type="range" min="1" max="500" id="range">
-    <div id="container">
+
+<div class="container">
+  <h2>Natural Cycles Frontend challenge</h2>
+  <form action="">
+    <div class="form-group">
+      <label for="email">Input text:</label>
+      <input class="form-control form-control-sm" type="text" placeholder="Enter a text" id="input">
+    </div>
+    <div class="form-group">
+        <label for="email"></label>
+        <input class="form-control form-control-sm"type="range" min="1" max="1130" id="range">
+    </div>
+    <div class="form-group">
+      <label for="pwd">output:</label>
         <div id="output"></div>
     </div>
-    <script src="js/main.js"></script>
+  </form>
+</div>
+<script src="js/main.js"></script>
 </body>
 </html>
