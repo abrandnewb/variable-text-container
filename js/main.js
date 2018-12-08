@@ -2,6 +2,8 @@
     var output = document.getElementById('output');
     var input = document.getElementById('input');
     var range = document.getElementById('range');
+    var showTest = document.getElementById('showTest');
+    var unitTest = document.getElementById('unitTest');
 
     //persist data after page reload
     (function() {
@@ -9,6 +11,8 @@
         output.innerHTML = get("inputText");
         input.value = get("inputText");
         range.value = get("rangeValue");
+        
+        document.getElementById('rangeCurrent').innerHTML = range.value;
     })();
 
     //save save
@@ -31,6 +35,15 @@
         output.innerHTML = get("inputText");
     });
     range.addEventListener('input',function() {
-            set("rangeValue", range.value);
-            output.style.width = get("rangeValue")+'px';
+        set("rangeValue", range.value);
+        output.style.width = get("rangeValue")+'px';
+        document.getElementById('rangeCurrent').innerHTML = range.value;
+    });
+    showTest.addEventListener('click', function() {
+        if(unitTest.style.display == 'none') {
+            unitTest.style.display = 'block';
+        }
+        else {
+            unitTest.style.display = 'none';
+        }
     });

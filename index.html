@@ -8,26 +8,55 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.8.0.css">
 </head>
 <body>
 
 <div class="container">
-  <h2>Natural Cycles Frontend challenge</h2>
+  <h2>Natural Cycles Frontend challenge</h2><br>
   <form action="">
     <div class="form-group">
       <label for="email">Input text:</label>
       <input class="form-control form-control-sm" type="text" placeholder="Enter a text" id="input">
     </div>
     <div class="form-group">
-        <label for="email"></label>
-        <input class="form-control form-control-sm"type="range" min="1" max="1130" id="range">
+        <label for=""></label>
+        <input class="form-control form-control-sm" type="range" min="1" max="1130" id="range">
+        <span id="rangeCurrent"></span>
     </div>
     <div class="form-group">
       <label for="pwd">output:</label>
         <div id="output"></div>
     </div>
   </form>
+  <h3>Unit Test</h3>
+ <a href="#" id="showTest">Run Unit Test</a>
+ <div id="unitTest">
+   <div id="qunit"></div>
+   <div id="qunit-fixture"></div>
+ </div>
+
 </div>
+<script src="https://code.jquery.com/qunit/qunit-2.8.0.js"></script>
 <script src="js/main.js"></script>
+<script>
+  function reloadPage() {
+    if (! localStorage.justOnce) {
+      localStorage.setItem("justOnce", "true");
+      window.location.reload();
+    }
+  }
+  function lineBreak(text) {
+    return RegExp(/\r|\n/).test(text);
+  }
+  QUnit.test( "Test assertions", function( assert ) {
+    assert.ok( document.getElementById('output').innerHTML == document.getElementById('input').value, "when entering text in the text input box, the same text should show in the output div." );
+    reloadPage();
+    assert.ok( document.getElementById('input').value !== ' ', "text field value persists after page reload." );
+    assert.ok( document.getElementById('range').value > 1, "rainge value persists after page reload." );
+    assert.ok( lineBreak(document.getElementById('output').innerHTML) == false, "No line breaks in output div." );
+  });
+</script>
 </body>
 </html>
